@@ -1,0 +1,17 @@
+/* Все стили из тега <style> переносим сюда */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #f8e1e7;
+    --secondary-color: #d4a5a5;
+    --accent-color: #9d7b7b;
+    --text-dark: #5a4a4a;
+    --text-light: #fff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ... и все остальные стили ... */

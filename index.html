@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weddingpost.ru | Приглашение на свадьбу Алексея и Анны</title>
+    <title>weddingpost.ru | Приглашение на свадьбу Антонины и Егора</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -47,6 +48,65 @@
             padding: 0 20px;
         }
         
+        /* NEW: Бегущая строка */
+        .marquee-banner {
+            background-color: var(--brown-dark);
+            color: var(--beige-light);
+            padding: 15px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 300;
+            padding-left: 100%;
+        }
+        
+        .marquee-content span {
+            margin: 0 50px;
+        }
+        
+        /* Пауза при наведении */
+        .marquee-banner:hover .marquee-content {
+            animation-play-state: paused;
+        }
+        
+        /* Градиентные края для плавности */
+        .marquee-banner::before,
+        .marquee-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .marquee-banner::before {
+            left: 0;
+            background: linear-gradient(to right, var(--brown-dark), transparent);
+        }
+        
+        .marquee-banner::after {
+            right: 0;
+            background: linear-gradient(to left, var(--brown-dark), transparent);
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
         /* Header */
         .header {
             text-align: center;
@@ -74,6 +134,81 @@
             letter-spacing: 1px;
         }
         
+        /* NEW: Opening Section */
+        .opening-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            background: linear-gradient(rgba(248, 245, 240, 0.95), rgba(248, 245, 240, 0.95));
+        }
+        
+        .opening-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .couple-names-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            color: var(--brown-dark);
+            margin: 30px 0;
+            font-weight: 600;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+        
+        .once-forever {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--brown-medium);
+            margin-bottom: 15px;
+            font-style: italic;
+            font-weight: 400;
+        }
+        
+        .with-love {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: var(--brown-light);
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+        
+        .main-photo-container {
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--beige-dark);
+        }
+        
+        .main-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .invitation-text {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 40px auto 0;
+            padding: 30px;
+            background: var(--beige-medium);
+            border-radius: 10px;
+            border: 1px solid var(--beige-dark);
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -88,7 +223,6 @@
             background: linear-gradient(rgba(248, 245, 240, 0.9), rgba(248, 245, 240, 0.9));
         }
         
-        /* ИСПРАВЛЕНО: Фоновое фото видно полностью */
         .hero-bg {
             position: absolute;
             top: 0;
@@ -96,9 +230,9 @@
             width: 100%;
             height: 100%;
             background: url('https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/502bbd9e0b6c34b0fc7628b7397858a4.JPG') no-repeat center center;
-            background-size: contain; /* Изменено с cover на contain */
-            background-color: var(--beige-light); /* Добавлен цвет фона */
-            opacity: 0.15; /* Увеличена прозрачность */
+            background-size: contain;
+            background-color: var(--beige-light);
+            opacity: 0.1;
             z-index: -1;
         }
         
@@ -203,45 +337,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--brown-light);
-        }
-        
-        /* Couple Section */
-        .couple-section {
-            padding: 100px 0;
-            text-align: center;
-            background-color: var(--beige-light);
-            position: relative;
-        }
-        
-        .couple-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--brown-dark);
-            font-weight: 500;
-        }
-        
-        .couple-subtitle {
-            font-size: 1.5rem;
-            color: var(--brown-medium);
-            margin-bottom: 60px;
-            font-style: italic;
-            font-weight: 300;
-        }
-        
-        .couple-names {
-            font-size: 3rem;
-            color: var(--brown-medium);
-            margin: 40px 0;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-        
-        .couple-text {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            line-height: 1.8;
         }
         
         /* Timeline Section */
@@ -450,7 +545,7 @@
             border: 1px solid var(--beige-dark);
         }
         
-        /* Gallery Section - ИСПРАВЛЕНО для вертикальных фото */
+        /* Gallery Section */
         .gallery-section {
             padding: 80px 0;
             background-color: var(--beige-light);
@@ -470,8 +565,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid var(--beige-dark);
-            height: auto; /* Убрана фиксированная высота */
-            aspect-ratio: 2/3; /* Соотношение сторон как у фото 3:4 */
+            height: auto;
+            aspect-ratio: 2/3;
         }
         
         .gallery-item:hover {
@@ -479,12 +574,11 @@
             box-shadow: 0 20px 40px rgba(93, 76, 58, 0.15);
         }
         
-        /* ИСПРАВЛЕНО: Фото видно полностью */
         .gallery-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Изменено с cover на contain */
-            background-color: var(--beige-light); /* Фон для пустых областей */
+            object-fit: contain;
+            background-color: var(--beige-light);
             transition: var(--transition);
         }
         
@@ -570,6 +664,18 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .couple-names-main {
+                font-size: 3rem;
+            }
+            
+            .once-forever {
+                font-size: 1.8rem;
+            }
+            
+            .with-love {
+                font-size: 1.1rem;
+            }
+            
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -584,10 +690,6 @@
             
             .date-details {
                 font-size: 1.2rem;
-            }
-            
-            .couple-names {
-                font-size: 2.5rem;
             }
             
             .timeline-container::before {
@@ -606,6 +708,22 @@
             .gallery-container {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
                 gap: 20px;
+            }
+            
+            .invitation-text {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+            
+            .marquee-content {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+                animation: marquee 20s linear infinite;
+            }
+            
+            .marquee-banner::before,
+            .marquee-banner::after {
+                width: 50px;
             }
         }
         
@@ -636,40 +754,57 @@
             transform: scale(1.3);
             background-color: var(--brown-medium);
         }
-        
-        /* Дополнительный стиль для лучшего отображения вертикальных фото */
-        .photo-frame {
-            padding: 10px;
-            background: var(--beige-light);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <a href="#" class="logo">weddingpost.ru</a>
-        <div class="design-credit">DESIGN BY @ABTVACHKO</div>
-    </header>
+    <!-- Бегущая строка -->
+    <div class="marquee-banner">
+        <div class="marquee-content">
+            <span>ПРИГЛАШЕНИЕ НА СВАДЬБУ</span>
+            <span>ПРИГЛАШЕНИЕ НА СВАДЬБУ</span>
+            <span>ПРИГЛАШЕНИЕ НА СВАДЬБУ</span>
+            <span>ПРИГЛАШЕНИЕ НА СВАДЬБУ</span>
+            <span>ПРИГЛАШЕНИЕ НА СВАДЬБУ</span>
+            <span>ПРИГЛАШЕНИЕ НА СВАДЬБУ</span>
+            <span>ПРИГЛАШЕНИЕ НА СВАДЬБУ</span>
+        </div>
+    </div>
+
+    <!-- Opening Section -->
+    <section class="opening-section" id="opening">
+        <div class="opening-content">
+            <div class="couple-names-main">АНТОНИНА + ЕГОР</div>
+            
+            <div class="once-forever">ОДНАЖДЫ. Навсегда</div>
+            
+            <div class="with-love">с любовью</div>
+            
+            <div class="main-photo-container fade-in">
+                <img src="https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/502bbd9e0b6c34b0fc7628b7397858a4.JPG" 
+                     alt="Антонина и Егор" class="main-photo">
+            </div>
+            
+            <div class="invitation-text fade-in">
+                Вы не просто так получили это приглашение! В особенный для нас день мы очень хотим, чтобы вы были рядом!
+            </div>
+        </div>
+    </section>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         
-        <div class="invitation-label">ЭЛЕКТРОННОЕ ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
-        <h1 class="hero-title">ПРИГЛАШАЕМ ВАС РАЗДЕЛИТЬ С НАМИ РАДОСТЬ</h1>
-        <h2 class="hero-subtitle">ГЛАВНОГО СОБЫТИЯ В НАШЕЙ ЖИЗНИ</h2>
+        <div class="invitation-label">ПРИГЛАШАЕМ ВАС РАЗДЕЛИТЬ С НАМИ РАДОСТЬ</div>
+        <h1 class="hero-title">ГЛАВНОГО СОБЫТИЯ В НАШЕЙ ЖИЗНИ</h1>
         
         <div class="date-container">
-            <div class="date-large">23 апреля 2023 года</div>
-            <div class="date-details">СУББОТА, 16:00</div>
+            <div class="date-large">10 января 2026 года</div>
+            <div class="date-details">СУББОТА, 17:00</div>
         </div>
         
         <div class="floral-divider"></div>
         
-        <h2 class="countdown-title">Мы женимся уже</h2>
+        <h2 class="countdown-title">Мы женимся уже через</h2>
         <div class="countdown-container">
             <div class="countdown-item">
                 <div class="countdown-value" id="days">102</div>
@@ -690,24 +825,6 @@
         </div>
     </section>
 
-    <!-- Couple Section -->
-    <section class="couple-section" id="couple">
-        <div class="container">
-            <h2 class="couple-title">ОДНАЖДЫ. С ЛЮБОВЬЮ</h2>
-            <p class="couple-subtitle">Мы создаём наш день, в котором будет место только настоящему</p>
-            
-            <div class="couple-names">АЛЕКСЕЙ + АННА</div>
-            
-            <div class="floral-divider"></div>
-            
-            <p class="couple-text">
-                Дорогие друзья и родные! Наша свадьба будет очень счастливой, уютной и бесшабашной. 
-                Приглашаем отметить этот день вместе с нами, разделить радость нашего союза и 
-                стать частью самого важного события в нашей жизни.
-            </p>
-        </div>
-    </section>
-
     <!-- Timeline Section -->
     <section class="timeline-section" id="timeline">
         <div class="container">
@@ -718,54 +835,21 @@
             
             <div class="timeline-container">
                 <div class="timeline-item fade-in">
-                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-time">16:30</div>
                     <h3 class="timeline-title">СБОР ГОСТЕЙ</h3>
-                    <p class="timeline-description">Общение с гостями и праздничный фуршет. Время для теплых встреч и первых поздравлений.</p>
+                    <p class="timeline-description">Общение и фотосессия с гостями. Время для теплых встреч и первых поздравлений. (Екатерининский зал)</p>
                 </div>
                 
                 <div class="timeline-item fade-in">
-                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-time">17:00</div>
                     <h3 class="timeline-title">ЦЕРЕМОНИЯ</h3>
                     <p class="timeline-description">Пожалуйста, не стесняйтесь проявлять ваши искренние эмоции. Это самый трогательный момент нашего дня.</p>
                 </div>
                 
                 <div class="timeline-item fade-in">
-                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-time">18:00</div>
                     <h3 class="timeline-title">БАНКЕТ</h3>
                     <p class="timeline-description">Время танцев, веселья, ваших поздравлений и вкусной еды. Ждем ваших тостов и хорошего настроения!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dress Code Section -->
-    <section class="dresscode-section" id="dresscode">
-        <div class="container">
-            <h2 class="section-title">ДРЕСС-КОД</h2>
-            
-            <div class="dresscode-container fade-in">
-                <h3 class="dresscode-title">dress-code</h3>
-                <p class="dresscode-text">
-                    Мы очень трепетно готовим наше торжество и будем благодарны, если вы поддержите его цветовую гамму и стилистику в своих образах.
-                </p>
-                
-                <div class="dresscode-colors">
-                    <div class="color-item">
-                        <div class="color-circle" style="background-color: #f8f5f0; border-color: #d4c9b8;"></div>
-                        <div class="color-name">Светлый беж</div>
-                    </div>
-                    <div class="color-item">
-                        <div class="color-circle" style="background-color: #e8dfd3; border-color: #d4c9b8;"></div>
-                        <div class="color-name">Теплый беж</div>
-                    </div>
-                    <div class="color-item">
-                        <div class="color-circle" style="background-color: #a68a64; border-color: #8b7355;"></div>
-                        <div class="color-name">Коричневый</div>
-                    </div>
-                    <div class="color-item">
-                        <div class="color-circle" style="background-color: #8b7355; border-color: #5d4c3a;"></div>
-                        <div class="color-name">Шоколадный</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -778,56 +862,21 @@
             
             <div class="location-container">
                 <div class="location-info fade-in">
-                    <div class="location-date">23 АПРЕЛЯ 2023</div>
-                    <h3 class="location-name">РЕСТОРАН "VINTY FOREST"</h3>
+                    <div class="location-date">10 ЯНВАРЯ 2026</div>
+                    <h3 class="location-name">БАНКЕТНЫЙ ЗАЛ "ОЛИВА"</h3>
                     <p class="location-address">
-                        Санаторно-курортная зона, живописное место в сосновом бору.<br>
-                        Ул. Лесная, 28, Московская область
+                        Московская ул. 91/1 Краснодар<br>
+                        
                     </p>
-                    <a href="https://yandex.ru/maps" target="_blank" class="map-button">Просмотреть на карте</a>
+                    <a href="https://yandex.ru/maps/org/oliva/1288514211/?ll=39.000690%2C45.079944&z=15.5" target="_blank" class="map-button">Просмотреть на карте</a>
                 </div>
                 
                 <div class="location-map fade-in">
                     <div style="text-align: center; padding: 20px;">
                         <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 20px; color: var(--brown-medium);"></i>
-                        <p>Карта ресторана "Vinty Forest"</p>
-                        <p style="font-size: 1rem; margin-top: 10px;">Нажмите кнопку выше для просмотра на карте</p>
+                        <p>Карта ресторана "ОЛИВА"</p>
+                        <p style="font-size: 1rem; margin-top: 10px;">Нажмите кнопку для просмотра на карте</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="container">
-            <h2 class="section-title">НАШИ МОМЕНТЫ</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem;">
-                Несколько фотографий, которые отражают нашу историю
-            </p>
-            
-            <div class="gallery-container">
-                <!-- Фото 1 -->
-                <div class="gallery-item fade-in">
-                    <img src="https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/502bbd9e0b6c34b0fc7628b7397858a4.JPG"
-                         alt="Наше фото" class="gallery-img">
-                </div>
-                
-                <!-- Если нужно больше фото, добавьте здесь -->
-                <!--
-                <div class="gallery-item fade-in">
-                    <img src="https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/photo2.jpg"
-                         alt="Наше фото 2" class="gallery-img">
-                </div>
-                -->
-            </div>
-            
-            <!-- Дополнительный вариант отображения фото для вертикальных снимков -->
-            <div style="text-align: center; margin-top: 40px;" class="fade-in">
-                <div class="photo-frame">
-                    <img src="https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/IMG_3727.JPG" 
-                         alt="Наше фото" 
-                         style="max-height: 500px; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </div>
@@ -836,131 +885,24 @@
     <!-- Footer -->
     <footer class="footer" id="footer">
         <div class="container">
-            <div class="footer-logo">weddingpost.ru</div>
-            
-            <p class="footer-invitation">МЫ НА СВАДЬБУ ПРИГЛАШАЕМ ВАС!</p>
-            
-            <p class="footer-text">
-                Дорогие друзья и родные! Наша свадьба будет очень счастливой, уютной и бесшабашной. 
-                Приглашаем отметить этот день вместе с нами.
-            </p>
+            <p class="footer-invitation">ЖДЁМ ВАС НА НАШЕЙ СВАДЬБЕ!</p>
             
             <div class="floral-divider" style="filter: brightness(2);"></div>
             
             <p class="footer-contact">
-                По всем вопросам: +7 (999) 123-45-67 (Анна, невеста)<br>
-                DESIGN BY @ABTVACHKO
+                По всем вопросам: +7 (964) 899-45-30 (невеста Антонина)<br>
             </p>
         </div>
     </footer>
 
     <!-- Navigation Dots -->
     <div class="nav-dots">
+        <div class="nav-dot" data-target="opening"></div>
         <div class="nav-dot active" data-target="home"></div>
-        <div class="nav-dot" data-target="couple"></div>
         <div class="nav-dot" data-target="timeline"></div>
-        <div class="nav-dot" data-target="dresscode"></div>
         <div class="nav-dot" data-target="location"></div>
-        <div class="nav-dot" data-target="gallery"></div>
-        <div class="nav-dot" data-target="footer"></div>
     </div>
 
-    <script>
-        // Анимация при скролле
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        // Навигация по точкам
-        const navDots = document.querySelectorAll('.nav-dot');
-        const sections = document.querySelectorAll('section, footer');
-        
-        const updateActiveDot = () => {
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 300)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navDots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('data-target') === currentSection) {
-                    dot.classList.add('active');
-                }
-            });
-        };
-        
-        // Плавная прокрутка для навигационных точек
-        navDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const targetId = dot.getAttribute('data-target');
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Обратный отсчет до свадьбы
-        function updateCountdown() {
-            const weddingDate = new Date('April 23, 2023 16:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = weddingDate - now;
-            
-            if (timeLeft < 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-                return;
-            }
-            
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        // Инициализация
-        window.addEventListener('load', () => {
-            fadeInOnScroll();
-            updateActiveDot();
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-            
-            // Анимация для элементов с задержкой
-            document.querySelectorAll('.fade-in').forEach((el, index) => {
-                el.style.transitionDelay = `${index * 0.1}s`;
-            });
-        });
-        
-        window.addEventListener('scroll', () => {
-            fadeInOnScroll();
-            updateActiveDot();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

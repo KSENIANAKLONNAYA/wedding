@@ -88,15 +88,17 @@
             background: linear-gradient(rgba(248, 245, 240, 0.9), rgba(248, 245, 240, 0.9));
         }
         
+        /* ИСПРАВЛЕНО: Фоновое фото видно полностью */
         .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://github.com/KSENIANAKLONNAYA/wedding-invitation/blob/main/images/IMG_3727.JPG') no-repeat center center;
-            background-size: cover;
-            opacity: 0.2;
+            background: url('https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/images/502bbd9e0b6c34b0fc7628b7397858a4.JPG') no-repeat center center;
+            background-size: contain; /* Изменено с cover на contain */
+            background-color: var(--beige-light); /* Добавлен цвет фона */
+            opacity: 0.15; /* Увеличена прозрачность */
             z-index: -1;
         }
         
@@ -448,7 +450,7 @@
             border: 1px solid var(--beige-dark);
         }
         
-        /* Gallery Section */
+        /* Gallery Section - ИСПРАВЛЕНО для вертикальных фото */
         .gallery-section {
             padding: 80px 0;
             background-color: var(--beige-light);
@@ -457,18 +459,19 @@
         .gallery-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 30px;
             margin-top: 40px;
         }
         
         .gallery-item {
-            height: 300px;
             border-radius: 10px;
             overflow: hidden;
             position: relative;
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid var(--beige-dark);
+            height: auto; /* Убрана фиксированная высота */
+            aspect-ratio: 2/3; /* Соотношение сторон как у фото 3:4 */
         }
         
         .gallery-item:hover {
@@ -476,15 +479,17 @@
             box-shadow: 0 20px 40px rgba(93, 76, 58, 0.15);
         }
         
+        /* ИСПРАВЛЕНО: Фото видно полностью */
         .gallery-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Изменено с cover на contain */
+            background-color: var(--beige-light); /* Фон для пустых областей */
             transition: var(--transition);
         }
         
         .gallery-item:hover .gallery-img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         
         /* Footer */
@@ -600,6 +605,7 @@
             
             .gallery-container {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
             }
         }
         
@@ -629,6 +635,15 @@
             opacity: 1;
             transform: scale(1.3);
             background-color: var(--brown-medium);
+        }
+        
+        /* Дополнительный стиль для лучшего отображения вертикальных фото */
+        .photo-frame {
+            padding: 10px;
+            background: var(--beige-light);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: inline-block;
         }
     </style>
 </head>
@@ -794,8 +809,25 @@
             <div class="gallery-container">
                 <!-- Фото 1 -->
                 <div class="gallery-item fade-in">
-                    <img src="https://github.com/KSENIANAKLONNAYA/wedding-invitation/blob/main/images/IMG_3727.JPG"
-                         alt="Фото пары 1" class="gallery-img">
+                    <img src="https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/images/502bbd9e0b6c34b0fc7628b7397858a4.JPG"
+                         alt="Наше фото" class="gallery-img">
+                </div>
+                
+                <!-- Если нужно больше фото, добавьте здесь -->
+                <!--
+                <div class="gallery-item fade-in">
+                    <img src="https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/photo2.jpg"
+                         alt="Наше фото 2" class="gallery-img">
+                </div>
+                -->
+            </div>
+            
+            <!-- Дополнительный вариант отображения фото для вертикальных снимков -->
+            <div style="text-align: center; margin-top: 40px;" class="fade-in">
+                <div class="photo-frame">
+                    <img src="https://raw.githubusercontent.com/KSENIANAKLONNAYA/wedding/main/images/IMG_3727.JPG" 
+                         alt="Наше фото" 
+                         style="max-height: 500px; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </div>
